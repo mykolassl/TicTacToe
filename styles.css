@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: rgb(238, 238, 238);
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background-color: rgb(228, 230, 249);
+}
+
+.game-status-container > h2 {
+    font-weight: 500;
+}
+
+.game-status-container > h2::first-letter {
+    color:rgb(12, 139, 242)
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.row > .cell {
+    padding: 0.8em 1em;
+    font-size: 3rem;
+    color: rgb(12, 139, 242);
+    cursor: default;
+    transition: all 0.1s 0s ease-in-out;
+}
+
+.row > .cell:hover {
+    background-color: rgb(209, 213, 253);
+}
+
+.row + .row {
+    border-top: 1px solid black;
+}
+
+.cell + .cell {
+    border-left: 1px solid black;
+}
+
+.button-container > button {
+    padding: 0.8em 1em;
+    font-size: 1.2rem;
+    background-color: rgb(209, 213, 253);
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s 0s ease-out;
+}
+
+.button-container > button:hover {
+    border-radius: 2px;
+}
