@@ -8,7 +8,7 @@
 
 html,
 body {
-    background-color: rgb(238, 238, 238);
+    background-color: hsl(0, 0%, 93%);
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
 }
@@ -19,7 +19,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background-color: rgb(228, 230, 249);
+    background-color: hsl(234, 64%, 94%);
 }
 
 .game-status-container > h2 {
@@ -27,7 +27,7 @@ body {
 }
 
 .game-status-container > h2::first-letter {
-    color:rgb(12, 139, 242)
+    color:hsl(207, 91%, 50%)
 }
 
 .board-container {
@@ -36,38 +36,40 @@ body {
 }
 
 .row {
+    --border-style: 1px solid hsl(0, 0%, 4%);
+
     display: flex;
 }
 
 .row > .cell {
     padding: 0.8em 1em;
     font-size: 3rem;
-    color: rgb(12, 139, 242);
+    color: hsl(207, 91%, 50%);
     cursor: default;
     transition: all 0.1s 0s ease-in-out;
 }
 
 .row > .cell:hover {
-    background-color: rgb(209, 213, 253);
+    background-color: hsl(235, 92%, 91%);
 }
 
 .row + .row {
-    border-top: 1px solid black;
+    border-top: var(--border-style);
 }
 
 .cell + .cell {
-    border-left: 1px solid black;
+    border-left: var(--border-style);
 }
 
 .button-container > button {
     padding: 0.8em 1em;
     font-size: 1.2rem;
-    background-color: rgb(209, 213, 253);
+    background-color: hsl(235, 92%, 91%);
     outline: none;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 8px 0px hsla(0, 0%, 0%, 0.2);
     transition: all 0.5s 0s ease-out;
 }
 
