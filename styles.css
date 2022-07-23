@@ -22,7 +22,7 @@ body {
     background-color: hsl(234, 64%, 94%);
 }
 
-.game-status-container > h2 {
+h2 {
     font-weight: 500;
 }
 
@@ -42,11 +42,21 @@ body {
 }
 
 .row > .cell {
-    padding: 0.8em 1em;
+    --cell-dimensions: clamp(6rem, 10vw, 10rem);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--cell-dimensions);
+    height: var(--cell-dimensions);
     font-size: 3rem;
     color: hsl(207, 91%, 50%);
     cursor: default;
     transition: all 0.1s 0s ease-in-out;
+}
+
+.row > .cell.winning-cell {
+    background-color: hsl(166, 89%, 53%) !important;
 }
 
 .row > .cell:hover {
@@ -61,7 +71,12 @@ body {
     border-left: var(--border-style);
 }
 
-.button-container > button {
+.button-container {
+    display: flex;
+    gap: 1em;
+}
+
+button {
     padding: 0.8em 1em;
     font-size: 1.2rem;
     background-color: hsl(235, 92%, 91%);
@@ -73,6 +88,6 @@ body {
     transition: all 0.5s 0s ease-out;
 }
 
-.button-container > button:hover {
+:not(button[disabled]):hover {
     border-radius: 2px;
 }
