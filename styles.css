@@ -22,12 +22,37 @@ body {
     background-color: hsl(234, 64%, 94%);
 }
 
-h2 {
-    font-weight: 500;
+.inputs-container {
+    display: flex;
+    gap: 1em;
 }
 
-.game-status-container > h2::first-letter {
-    color:hsl(207, 91%, 50%)
+@media screen and (max-width: 550px) {
+    .inputs-container { 
+        flex-direction: column;
+    }
+}
+
+.inputs-container > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-container > div > input {
+    padding: 0.2em 0.5em;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+}
+
+.inputs-container > div > input:hover {
+    box-shadow: 0px 3px 8px 0px hsla(0, 0%, 0%, 0.2);
+    border-radius: 50px;
+}
+
+h2 {
+    font-weight: 500;
 }
 
 .board-container {

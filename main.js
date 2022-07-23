@@ -60,8 +60,8 @@ const gameBoard = (() => {
 })();
 
 const displayController = (() => {
-    const playerOne = Player('Player1', 'X');
-    const playerTwo = Player('Player2', 'O');
+    let playerOne = {};
+    let playerTwo = {};
     let currentPlayer = {};
     
     const startGame = () => {
@@ -74,12 +74,21 @@ const displayController = (() => {
         });
     };
 
+    const createPlayers = () => {
+        let playerOneName = document.querySelector('#name1').value || 'X';
+        let playerTwoName = document.querySelector('#name2').value || 'O';
+
+        playerOne = Player(playerOneName, 'X');
+        playerTwo = Player(playerTwoName, 'O');
+    };
+
     const setupBoard = () => {
         const display = document.querySelector('.game-status-container > h2');
         const cells = document.querySelectorAll('.cell');
         
-        display.innerText = 'X starts the game!';
+        display.innerText = 'Player one starts the game!';
         
+        createPlayers();
         gameBoard.clearBoard();
         clearBoard();
 
@@ -107,9 +116,9 @@ const displayController = (() => {
 
         if(!hasPlayerWon) {
             switchTurns(playerOne, playerTwo);
-            display.innerText = `${currentPlayer.getPlayerSign()}'s turn`
+            display.innerText = `${currentPlayer.getPlayerName()}'s turn`
         } else {
-            display.innerText = `${currentPlayer.getPlayerSign()} won the game!`;
+            display.innerText = `${currentPlayer.getPlayerName()} won the game!`;
             colorWinningCells();
             removeCellListeners();
             showPlayAgainModal();
