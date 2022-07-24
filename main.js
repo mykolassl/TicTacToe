@@ -109,7 +109,12 @@ const displayController = (() => {
     };
 
     const handleCellClick = (event) => {
-        placeSign(event);
+        const cellIndex = event.target.dataset.cellId;
+        const isValidCell = gameBoard.isCellEmpty(cellIndex);
+
+        if(!isValidCell) return;
+
+        placeSign(event, cellIndex);
         const display = document.querySelector('.game-status-container > h2');
         const hasPlayerWon = gameBoard.checkWin();
         const isTie = gameBoard.checkTie();
@@ -132,12 +137,8 @@ const displayController = (() => {
         }
     };
 
-    const placeSign = (e) => {
-        const cellIndex = e.target.dataset.cellId;
+    const placeSign = (e, cellIndex) => {
         const sign = currentPlayer.getPlayerSign();
-        const isValidCell = gameBoard.isCellEmpty(cellIndex);
-
-        if(!isValidCell) return;
 
         e.target.innerText = sign;
         gameBoard.placeSign(sign, cellIndex);
